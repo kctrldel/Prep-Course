@@ -1,5 +1,7 @@
 // En estas primeras 6 preguntas, reemplaza `null` por la respuesta
 
+const { unescapeMd } = require("markdown-it/lib/common/utils");
+
 // Crea una variable "string", puede contener lo que quieras:
 const nuevaString = 'Hola mundo';
 
@@ -68,21 +70,18 @@ function sonIguales(x, y) {
   // Tu código:
   if(x===y){
     return true;
-  }
+  }else{
   return false;
+}
 }
 
 function tienenMismaLongitud(str1, str2) {
   // Devuelve "true" si las dos strings tienen la misma longitud
   // De lo contrario, devuelve "false"
   // Tu código:
-  var valor1 = str1.lenght;
-  var valor2 = str2.lenght;
-      if(valor1===valor2){
-        return true;
-      }
-      return false;
+  return str1.length === str2.length;
 }
+
 
 function menosQueNoventa(num) {
   // Devuelve "true" si el argumento de la función "num" es menor que noventa
@@ -90,24 +89,24 @@ function menosQueNoventa(num) {
   // Tu código:
   if(num <90){
     return true;
-  }
+  }else{
   return false;
 }
-
+}
 function mayorQueCincuenta(num) {
   // Devuelve "true" si el argumento de la función "num" es mayor que cincuenta
   // De lo contrario, devuelve "false"
   // Tu código:
   if(num>50){
     return true;
-  }
+  }else{
   return false;
 }
-
+}
 function obtenerResto(x, y) {
   // Obten el resto de la división de "x" entre "y"
   // Tu código:
-  var resta = x-y;
+  var resta = x%y;
   return resta;
 }
 
@@ -115,64 +114,64 @@ function esPar(num) {
   // Devuelve "true" si "num" es par
   // De lo contrario, devuelve "false"
   // Tu código:
-  var comparacion = num%2;
-  if(camparacion === 0){
+  
+  if(num%2 === 0){
     return true;
-  }
+  }else{
   return false;
 }
-
+}
 function esImpar(num) {
   // Devuelve "true" si "num" es impar
   // De lo contrario, devuelve "false"
   // Tu código:
-  var comparacion = num%2;
-  if(camparacion>0){
+
+   if(num%2 ===1){
     return true;
-  }
+  }else{
   return false;
 }
-
+}
 function elevarAlCuadrado(num) {
   // Devuelve el valor de "num" elevado al cuadrado
   // ojo: No es raiz cuadrada!
   // Tu código:
-  var elevar = math.pow(num,2);
+  var elevar = Math.pow(num,2);
   return elevar;
 }
 
 function elevarAlCubo(num) {
   // Devuelve el valor de "num" elevado al cubo
   // Tu código:
-  var elevar = math.pow(num,3);
+  var elevar = Math.pow(num,3);
   return elevar;
 }
 
 function elevar(num, exponent) {
   // Devuelve el valor de "num" elevado al exponente dado en "exponent"
   // Tu código:
-  var elevar = math.pow(num,exponent);
+  var elevar = Math.pow(num,exponent);
   return elevar;
 }
 
 function redondearNumero(num) {
   // Redondea "num" al entero más próximo y devuélvelo
   // Tu código:
-  var redon = math.round(num);
+  var redon = Math.round(num);
   return redon
 }
 
 function redondearHaciaArriba(num) {
   // Redondea "num" hacia arriba (al próximo entero) y devuélvelo
   // Tu código:
-  var redona = math.ceil(num);
+  var redona = Math.ceil(num);
   return redona;
 }
 
 function numeroRandom() {
   //Generar un número al azar entre 0 y 1 y devolverlo
   //Pista: investigá qué hace el método Math.random()
-  var nrandon = math.random();
+  var nrandon = Math.random();
   return nrandon;
 }
 
@@ -181,14 +180,16 @@ function esPositivo(numero) {
   //Si el número es positivo, devolver ---> "Es positivo"
   //Si el número es negativo, devolver ---> "Es negativo"
   //Si el número es 0, devuelve false
-  if (numero >=0){
-    var posi = 'Es positivo';
-    return posi;
+  if(numero === 0) {
+    return false;
   }
-  var nega = 'Es negativo';
-  return nega;
+  else if(numero > 0) {
+    return "Es positivo";
+  }
+  else {
+    return "Es negativo";
+  }
 }
-
 function agregarSimboloExclamacion(str) {
   // Agrega un símbolo de exclamación al final de la string "str" y devuelve una nueva string
   // Ejemplo: "hello world" pasaría a ser "hello world!"
@@ -209,8 +210,8 @@ function obtenerSaludo(nombre) {
   // Toma la string "nombre" y concatena otras string en la cadena para que tome la siguiente forma:
   // "Martin" -> "Hola Martin!"
   // Tu código:
-  var obtn = 'Bienvenido' + nombre + '!';
-  return obtn;
+  var cadena = 'Hola' + ' '+ nombre + '!';
+  return cadena;
 }
 
 function obtenerAreaRectangulo(alto, ancho) {
@@ -241,7 +242,7 @@ function deEuroAdolar(euro){
   //Supongamos que 1 euro equivale a 1.20 dólares. Escribe un programa que reciba
   //como parámetro un número de euros y calcule el cambio en dólares.
   //Escribe tu código aquí
-  var cambio = (1.20 * euro)/1 + 'dolares';
+  var cambio = (1.20 * euro)/1;
   return cambio;
 }
 
@@ -252,15 +253,17 @@ function esVocal(letra){
   //que no se puede procesar el dato mediante el mensaje "Dato incorrecto".
   // Si no es vocal, tambien debe devolver "Dato incorrecto".
   //Escribe tu código aquí
-  var vocales = letra.lenght;
-  if(vocales >1){
-    var datoc = 'Dato incorrecto';
-    return datoc;
+  
+  
+  if(letra.length >1){
+    return "Dato incorrecto";
+  }if( letra === "a"  || letra === "e" 
+  || letra === "i" || letra === "o" || letra === "u"){
+    return "Es vocal";
   }
-  else if( vocales === a  || vocales === a || vocales === a || vocales === a || vocales === a){
-    var datoc = 'Es vocal';
-    return datoc;
-  }
+  
+    return "Dato incorrecto";
+  
 }
 
 
