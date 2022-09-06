@@ -26,11 +26,13 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var matriz = [];
-  for(var i = 0; i < array; i++){
-    matriz[i] = array[i] + 1; 
+  var nuevoArray = [];
+  for(var i = 0; i < array.length; i++) {
+    nuevoArray[i] = array[i] + 1;
   }
-  return matriz;
+
+  return nuevoArray;
+
 }
 
 
@@ -67,8 +69,8 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for(var i=0; i < array.lenght; i++){
-    if(array[i]=== elemento){
+  for(var i = 0; i < array.length; i++) {
+    if(array[i] === elemento) {
       return true;
     }
   }
@@ -101,13 +103,12 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   var maximo = numeros[0];
-  for( var i = 1; i < numeros.lenght; i++){
-    if(numeros[i] > maximo){
+  for(var i = 1; i < numeros.length; i++) {
+    if(numeros[i] > maximo) { 
       maximo = numeros[i];
     }
   }
   return maximo;
-  
 }
 
 
@@ -116,26 +117,25 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-  if(arguments.length <1) return 0;
-  var totales = 1;
-  for(var i = 0; i < arguments.lenght; i++){
-    totales = totales* arguments.lenght[i]
+  if(arguments.length < 1) return 0;
+  var total = 1;
+  for(var i = 0; i < arguments.length; i++) {
+    total = total * arguments[i];
   }
-  return totales;
+  return total;
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-  if(arreglo.lenght > 18){
-    var contar = 0;
-    for(i = 0; i< arreglo.length; i++){
-      contar = contar + arreglo[i];
+  let contador = 0;
+  for (let i = 0; i < arreglo.length ; i++) {
+    if(arreglo[i] > 19){
+      contador++
     }
-    return contar;
   }
-
+  return contador
 }
 
 
@@ -167,12 +167,12 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  for(var i = 0; i < arreglo.length -1; i++){
+  for (var i =0 ; i < arreglo.length - 1; i++) {
     if(arreglo[i] !== arreglo[i+1]){
-      return false;
+      return false
     }
   }
-  return false;
+  return true
 } 
 
 
@@ -181,15 +181,17 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  var nuevoa =[];
-  for(let i = 0; i < array.length; i++){
-    if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre")
-   nuevoa.push(array[i]);
+  var nuevoArray = [];
+  for(let i= 0; i<array.length; i++) {
+    if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+      nuevoArray.push(array[i]);
+    }
   }
-  if(nuevoa.length <3){
-    return "No se encuentra los meses pedidos";
-  }else{
-    return nuevoa;
+  if(nuevoArray.length < 3) {
+    return "No se encontraron los meses pedidos";
+  }
+  else {
+      return nuevoArray;
   }
 }
 
@@ -199,13 +201,13 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
-  var nuevoA = [];
-  for(let i=0; i< array.length; i++){
-if(array[i] > 100 && array[i] <= 200){
-  nuevoA.push(array[i]);
-}
+  var nuevoArray = [];
+  for(let i= 0; i < array.length; i++) {
+    if(array[i] > 100) {
+      nuevoArray.push(array[i]);
+    }
   }
-  return nuevoA;
+  return nuevoArray;
 }
 
 
